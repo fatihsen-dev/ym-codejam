@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.ellipse {
+  border: 1px solid #ddd;
+  @apply rounded-full flex justify-center items-center dark:border-white/10;
+}
+body,
+#root {
+  @apply dark:bg-dark;
+}

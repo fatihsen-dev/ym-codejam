@@ -1,0 +1,333 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+@import url("./tailwind.css");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+html,
+body,
+#root {
+  height: 100%;
+  background-color: #f4f4f4;
+}
+body {
+  overflow: hidden;
+}
+#loadingScreen {
+  transition: 0.4s;
+}
+.b {
+  margin-right: 10px;
+}
+.main-section.active {
+  display: flex;
+}
+.header-text.active {
+  display: flex;
+}
+.dark-mode.active {
+  display: block;
+}
+.name-animate {
+  & > span {
+    transform: translateY(-100px);
+    opacity: 0;
+    position: relative;
+    background-image: url("https://cdn.dribbble.com/userupload/3355794/file/original-b9b0bca4f172f61bf2f7b469c88542e7.jpg?compress=1&resize=1024x768");
+    color: transparent;
+    background-size: 450%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-repeat: no-repeat;
+    font-weight: 900;
+  }
+  @for $i from 1 through 15 {
+    & > span:nth-child(#{$i}) {
+      animation: animate 0.1s forwards $i/15  + s;
+    }
+  }
+
+  @keyframes animate {
+    from {
+      transform: translateY(-100px);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+}
+.img-container {
+  width: 750px;
+  height: 650px;
+}
+.ellipse-1 {
+  width: 650px;
+  height: 650px;
+}
+.ellipse-2 {
+  width: 550px;
+  height: 550px;
+}
+.ellipse-3 {
+  width: 450px;
+  height: 450px;
+}
+.ellipse-4 {
+  width: 350px;
+  height: 350px;
+}
+.ellipse-5 {
+  width: 250px;
+  height: 250px;
+}
+
+.ellipse {
+  position: relative;
+  .ellipse_img {
+    border-radius: 100%;
+    position: absolute;
+    cursor: pointer;
+  }
+
+  & > .ellipse_img {
+    $width1: 50px;
+    transition: 0.15s;
+    object-fit: cover;
+
+    width: $width1;
+    height: $width1;
+
+    &:hover {
+      transform: scale(1.5);
+      z-index: 10;
+    }
+
+    &:nth-child(1) {
+      top: -$width1/2;
+    }
+    &:nth-child(2) {
+      right: -$width1/2;
+    }
+    &:nth-child(3) {
+      bottom: -$width1/2;
+    }
+    &:nth-child(4) {
+      left: -$width1/2;
+    }
+  }
+
+  @for $i from 1 through 5 {
+    &:nth-child(#{$i}) {
+      animation: animate2 $i * 30 + s linear infinite;
+    }
+  }
+
+  @keyframes animate2 {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+}
+
+@media (max-width: 1600px) {
+  .img-container {
+    width: 650px;
+    height: 550px;
+  }
+
+  .ellipse-1 {
+    width: 550px;
+    height: 550px;
+    min-width: 550px;
+    min-height: 550px;
+  }
+  .ellipse-2 {
+    width: 450px;
+    height: 450px;
+  }
+  .ellipse-3 {
+    width: 350px;
+    height: 350px;
+  }
+  .ellipse-4 {
+    width: 250px;
+    height: 250px;
+  }
+  .ellipse-5 {
+    width: 150px;
+    height: 150px;
+  }
+  .ellipse {
+    position: relative;
+    .ellipse_img {
+      border-radius: 100%;
+      position: absolute;
+      cursor: pointer;
+    }
+
+    & > .ellipse_img {
+      $width1: 40px;
+
+      width: $width1;
+      height: $width1;
+
+      &:nth-child(1) {
+        top: -$width1/2;
+      }
+      &:nth-child(2) {
+        right: -$width1/2;
+      }
+      &:nth-child(3) {
+        bottom: -$width1/2;
+      }
+      &:nth-child(4) {
+        left: -$width1/2;
+      }
+    }
+  }
+}
+@media (max-width: 1350px) {
+  .img-container {
+    width: 550px;
+    height: 450px;
+  }
+
+  .ellipse-1 {
+    width: 450px;
+    height: 450px;
+    min-width: 450px;
+    min-height: 450px;
+  }
+  .ellipse-2 {
+    width: 350px;
+    height: 350px;
+  }
+  .ellipse-3 {
+    width: 250px;
+    height: 250px;
+  }
+  .ellipse-4 {
+    width: 150px;
+    height: 150px;
+  }
+  .ellipse-5 {
+    width: 50px;
+    height: 50px;
+    display: none;
+  }
+  .ellipse {
+    position: relative;
+    .ellipse_img {
+      border-radius: 100%;
+      position: absolute;
+      cursor: pointer;
+    }
+
+    & > .ellipse_img {
+      $width1: 30px;
+
+      width: $width1;
+      height: $width1;
+
+      &:nth-child(1) {
+        top: -$width1/2;
+      }
+      &:nth-child(2) {
+        right: -$width1/2;
+      }
+      &:nth-child(3) {
+        bottom: -$width1/2;
+      }
+      &:nth-child(4) {
+        left: -$width1/2;
+      }
+    }
+  }
+}
+
+@media (max-width: 1090px) {
+  .main-section {
+    flex-direction: column-reverse;
+    gap: 50px;
+    margin-top: 100px;
+  }
+  .img-container {
+    width: 650px;
+    height: 550px;
+  }
+  body {
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .ellipse-1 {
+    width: 550px;
+    height: 550px;
+    min-width: 550px;
+    min-height: 550px;
+  }
+  .ellipse-2 {
+    width: 450px;
+    height: 450px;
+  }
+  .ellipse-3 {
+    width: 350px;
+    height: 350px;
+  }
+  .ellipse-4 {
+    width: 250px;
+    height: 250px;
+  }
+  .ellipse-5 {
+    width: 150px;
+    height: 150px;
+    display: flex;
+  }
+  .ellipse {
+    position: relative;
+    .ellipse_img {
+      border-radius: 100%;
+      position: absolute;
+      cursor: pointer;
+    }
+
+    & > .ellipse_img {
+      $width1: 40px;
+
+      width: $width1;
+      height: $width1;
+
+      &:nth-child(1) {
+        top: -$width1/2;
+      }
+      &:nth-child(2) {
+        right: -$width1/2;
+      }
+      &:nth-child(3) {
+        bottom: -$width1/2;
+      }
+      &:nth-child(4) {
+        left: -$width1/2;
+      }
+    }
+  }
+}
+
+@media (min-width: 992px) {
+}
