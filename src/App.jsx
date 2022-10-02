@@ -39,7 +39,7 @@ export default function App() {
       setTimeout(() => {
         loadingScreen.style.opacity = "0";
         setTimeout(() => {
-          loadingScreen.remove();
+          loadingScreen.classList.add("disable");
           mainSection.classList.add("active");
           headerText.classList.add("active");
         }, 500);
