@@ -1,3 +1,5 @@
+
+// img componentini fazladan kod yazmamak için oluşturdum
 export default function Img({src, setImgSrc}) {
   return (
     <img

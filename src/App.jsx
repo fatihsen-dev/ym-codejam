@@ -1,14 +1,20 @@
+// lottiefiles sayesinde loading ekranını içerisindeki gifi oluşturdum
 import {Player} from "@lottiefiles/react-lottie-player";
+// react'te özgü olan useEffect ve useState import ediyoruz
 import {useEffect, useState} from "react";
+// img componentini import ediyorum
 import Img from "./components/Img";
+// react icons içerisindeki iconları import ediyorum tema butonunda kullanıyorum
 import {FaSun, FaMoon} from "react-icons/fa";
 
 export default function App() {
+  // tema değiştirmek için ve img src sini tutmak için stateler oluşturdum
   const [imgSrc, setImgSrc] = useState("./assets/images/img13.webp");
   const [darkMode, setDarkMode] = useState(
     JSON.parse(localStorage.getItem("ymDark")) ?? false
   );
 
+  // tema değiştirmek için fonksiyon oluşturdum
   const darkModeHanddle = () => {
     setDarkMode(!darkMode);
     localStorage.setItem("ymDark", !darkMode);
@@ -18,11 +24,14 @@ export default function App() {
       : (document.body.className = "light");
   };
 
+  // sayfa render edilince çalışıcak fonskiyon
   useEffect(() => {
+    // sayfa renderlenince darkMode statesi true ise sayfa koyu tema yapılıyor
     darkMode
       ? (document.body.className = "dark")
       : (document.body.className = "light");
 
+    // sayfa yüklendiğinde loading ekranı açılıyor ve 3sn sonra gizleniyor
     window.addEventListener("load", () => {
       const loadingScreen = document.querySelector("#loadingScreen");
       const mainSection = document.querySelector(".main-section");
@@ -37,8 +46,11 @@ export default function App() {
       }, 3000);
     });
   }, []);
+
+  // burası ssayfamızın renderlendiği yer
   return (
     <div className='w-full bg-light h-full text-dark dark:bg-dark overflow-auto'>
+      {/* Sayfa renderleninice başlatılan ve sorna gizlenen element */}
       <div
         id='loadingScreen'
         className='absolute dark:bg-dark bg-light w-full h-full flex justify-center items-center inset-0'>
@@ -49,6 +61,7 @@ export default function App() {
           style={{height: "400px", width: "400px"}}></Player>
       </div>
       <div className='h-full justify-between items-center flex flex-col dark:bg-dark'>
+        {/* Yazılımcı mekanı header text */}
         <div className='header-text mt-6 relative hidden flex-col items-center justify-center w-full'>
           <h1 className='name-animate text-5xl relative font-bold select-none flex top-5 2xl:text-7xl xl:text-7xl lg:text-6xl md:text-5xl sm:text-5xl'>
             <span>Y</span>
@@ -76,7 +89,9 @@ export default function App() {
             {darkMode ? <FaSun /> : <FaMoon />}
           </button>
         </div>
+        {/* resimlerimizin bulunduğu ana element */}
         <div className='main-section items-center container hidden w-full flex-1 gap-10 dark:bg-dark'>
+          {/* büyük resim */}
           <div className='big-img w-full flex-1 flex justify-center items-center py-16'>
             <div className='img-container relative overflow-hidden rounded-sm'>
               <img className='object-cover w-full h-full' src={imgSrc} alt='' />
@@ -86,6 +101,7 @@ export default function App() {
               </div>
             </div>
           </div>
+          {/* resimlerin bulunduğu çark */}
           <div className='flex-0 2xl:flex-1 xl:flex-1 lg:flex-0 md:flex-0 sm:flex-0 md:h-[700px] flex justify-center items-center overflow-hidden'>
             <div className='ellipse ellipse-1 relative'>
               <Img setImgSrc={setImgSrc} src='./assets/images/img1.webp' />
@@ -136,6 +152,7 @@ export default function App() {
                         setImgSrc={setImgSrc}
                         src='./assets/images/img20.webp'
                       />
+                      {/* çarkın ortasındaki animasyon */}
                       <Player
                         autoplay
                         loop

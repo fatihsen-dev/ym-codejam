@@ -2,10 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
+
+/*burada bütün dairelerimizi yuvarlıyoruz ve border ekliyoruz koyu tema olunca border rengini değiştiriyoruz */
 .ellipse {
   border: 1px solid #ddd;
   @apply rounded-full flex justify-center items-center dark:border-white/10;
 }
+
+/* Body ve root elementimizi arka plan veriyoruz*/
 body,
 #root {
   @apply dark:bg-dark;

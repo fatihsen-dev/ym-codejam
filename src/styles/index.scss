@@ -1,5 +1,10 @@
+// fontumuzu import ediyoruz 
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+// tailwind dosyamızı import ediyoruz
 @import url("./tailwind.css");
+
+//- css sıfırlaması yapıyoruz
 * {
   margin: 0;
   padding: 0;
@@ -21,15 +26,21 @@ body,
   height: 100%;
   background-color: #f4f4f4;
 }
+
+//- animasyon taşmasını önlemek için body ye aşağıdaki özeliği veriyoruz
 body {
   overflow: hidden;
 }
+
+//- loading ekranına animasyon süresi veriyoruz
 #loadingScreen {
   transition: 0.4s;
 }
 .b {
   margin-right: 10px;
 }
+
+//- buradı bazı elementler gizlenmişti loading ekranı kapandıktan sonra bunlar aktifleştiriliyor 
 .main-section.active {
   display: flex;
 }
@@ -39,6 +50,8 @@ body {
 .dark-mode.active {
   display: block;
 }
+
+//- Yazılımcı mekanı yazı animasyonunu ayarladım
 .name-animate {
   & > span {
     transform: translateY(-100px);
@@ -69,6 +82,8 @@ body {
     }
   }
 }
+
+// - burada çark için stiller eklendi 
 .img-container {
   width: 750px;
   height: 650px;
@@ -145,6 +160,7 @@ body {
   }
 }
 
+//- burada responsive ayarlamaları yapıldı
 @media (max-width: 1600px) {
   .img-container {
     width: 650px;
@@ -327,7 +343,4 @@ body {
       }
     }
   }
-}
-
-@media (min-width: 992px) {
 }
