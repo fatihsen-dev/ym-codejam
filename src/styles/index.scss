@@ -67,7 +67,7 @@ body {
   }
   @for $i from 1 through 15 {
     & > span:nth-child(#{$i}) {
-      animation: animate 0.1s forwards $i/15 + s;
+      animation: animate 0.1s forwards $i/14 + s;
     }
   }
 
@@ -83,7 +83,7 @@ body {
   }
 }
 #loadingScreen.disable {
-  display: none;
+  display: none !important;
 }
 
 // - burada çark için stiller eklendi
