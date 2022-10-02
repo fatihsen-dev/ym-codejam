@@ -37,12 +37,9 @@ export default function App() {
       const mainSection = document.querySelector(".main-section");
       const headerText = document.querySelector(".header-text");
       setTimeout(() => {
-        loadingScreen.style.opacity = "0";
-        setTimeout(() => {
-          loadingScreen.classList.add("disable");
-          mainSection.classList.add("active");
-          headerText.classList.add("active");
-        }, 500);
+        loadingScreen.classList.add("disable");
+        mainSection.classList.add("active");
+        headerText.classList.add("active");
       }, 3000);
     });
   }, []);

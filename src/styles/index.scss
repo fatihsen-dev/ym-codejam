@@ -67,7 +67,7 @@ body {
   }
   @for $i from 1 through 15 {
     & > span:nth-child(#{$i}) {
-      animation: animate 0.1s forwards $i/14 + s;
+      animation: animate 0.1s forwards $i/16 + s;
     }
   }
 
