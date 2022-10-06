@@ -30,14 +30,10 @@ export default function App() {
     const mainSection = document.querySelector(".main-section");
     const headerText = document.querySelector(".header-text");
     // sayfa yüklendiğinde loading ekranı açılıyor ve 3sn sonra gizleniyor
-    window.addEventListener("load", () => {
-      setTimeout(() => {
-        mainSection.classList.add("active");
-        headerText.classList.add("active");
-      }, 2400);
-    });
 
     setTimeout(() => {
+      mainSection.classList.add("active");
+      headerText.classList.add("active");
       loadingScreen.classList.add("disable");
       loadingScreen.remove();
     }, 2400);
