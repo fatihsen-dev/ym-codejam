@@ -1,11 +1,11 @@
 // lottiefiles sayesinde loading ekranını içerisindeki gifi oluşturdum
-import {Player} from "@lottiefiles/react-lottie-player";
+import { Player } from "@lottiefiles/react-lottie-player";
 // react'te özgü olan useEffect ve useState import ediyoruz
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 // img componentini import ediyorum
 import Img from "./components/Img";
 // react icons içerisindeki iconları import ediyorum tema butonunda kullanıyorum
-import {FaSun, FaMoon} from "react-icons/fa";
+import { FaSun, FaMoon } from "react-icons/fa";
 
 export default function App() {
   // tema değiştirmek için ve img src sini tutmak için stateler oluşturdum
@@ -19,29 +19,28 @@ export default function App() {
     setDarkMode(!darkMode);
     localStorage.setItem("ymDark", !darkMode);
 
-    !darkMode
-      ? (document.body.className = "dark")
-      : (document.body.className = "light");
+    !darkMode ? (document.body.className = "dark") : (document.body.className = "light");
   };
 
   // sayfa render edilince çalışıcak fonskiyon
   useEffect(() => {
     // sayfa renderlenince darkMode statesi true ise sayfa koyu tema yapılıyor
-    darkMode
-      ? (document.body.className = "dark")
-      : (document.body.className = "light");
-
+    darkMode ? (document.body.className = "dark") : (document.body.className = "light");
+    const loadingScreen = document.querySelector("#loadingScreen");
+    const mainSection = document.querySelector(".main-section");
+    const headerText = document.querySelector(".header-text");
     // sayfa yüklendiğinde loading ekranı açılıyor ve 3sn sonra gizleniyor
     window.addEventListener("load", () => {
-      const loadingScreen = document.querySelector("#loadingScreen");
-      const mainSection = document.querySelector(".main-section");
-      const headerText = document.querySelector(".header-text");
       setTimeout(() => {
-        loadingScreen.classList.add("disable");
         mainSection.classList.add("active");
         headerText.classList.add("active");
-      }, 3000);
+      }, 2400);
     });
+
+    setTimeout(() => {
+      loadingScreen.classList.add("disable");
+      loadingScreen.remove();
+    }, 2400);
   }, []);
 
   // burası ssayfamızın renderlendiği yer
@@ -55,7 +54,7 @@ export default function App() {
           autoplay
           loop
           src='https://assets8.lottiefiles.com/temp/lf20_jIG9zu.json'
-          style={{height: "400px", width: "400px"}}></Player>
+          style={{ height: "400px", width: "400px" }}></Player>
       </div>
       <div className='h-full justify-between items-center flex flex-col dark:bg-dark'>
         {/* Yazılımcı mekanı header text */}
@@ -77,9 +76,7 @@ export default function App() {
             <span>n</span>
             <span>ı</span>
           </h1>
-          <p className='mt-5 dark:text-light/80'>
-            Lütfen çarktan bir resime tıklayın :)
-          </p>
+          <p className='mt-5 dark:text-light/80'>Lütfen çarktan bir resime tıklayın :)</p>
           <button
             onClick={() => darkModeHanddle()}
             className='dark-mode absolute dark:text-light right-10 text-2xl'>
@@ -116,45 +113,21 @@ export default function App() {
                   <Img setImgSrc={setImgSrc} src='./assets/images/img11.webp' />
                   <Img setImgSrc={setImgSrc} src='./assets/images/img12.webp' />
                   <div className='ellipse ellipse-4'>
-                    <Img
-                      setImgSrc={setImgSrc}
-                      src='./assets/images/img13.webp'
-                    />
-                    <Img
-                      setImgSrc={setImgSrc}
-                      src='./assets/images/img14.webp'
-                    />
-                    <Img
-                      setImgSrc={setImgSrc}
-                      src='./assets/images/img15.webp'
-                    />
-                    <Img
-                      setImgSrc={setImgSrc}
-                      src='./assets/images/img16.webp'
-                    />
+                    <Img setImgSrc={setImgSrc} src='./assets/images/img13.webp' />
+                    <Img setImgSrc={setImgSrc} src='./assets/images/img14.webp' />
+                    <Img setImgSrc={setImgSrc} src='./assets/images/img15.webp' />
+                    <Img setImgSrc={setImgSrc} src='./assets/images/img16.webp' />
                     <div className='ellipse ellipse-5'>
-                      <Img
-                        setImgSrc={setImgSrc}
-                        src='./assets/images/img17.webp'
-                      />
-                      <Img
-                        setImgSrc={setImgSrc}
-                        src='./assets/images/img18.webp'
-                      />
-                      <Img
-                        setImgSrc={setImgSrc}
-                        src='./assets/images/img19.webp'
-                      />
-                      <Img
-                        setImgSrc={setImgSrc}
-                        src='./assets/images/img20.webp'
-                      />
+                      <Img setImgSrc={setImgSrc} src='./assets/images/img17.webp' />
+                      <Img setImgSrc={setImgSrc} src='./assets/images/img18.webp' />
+                      <Img setImgSrc={setImgSrc} src='./assets/images/img19.webp' />
+                      <Img setImgSrc={setImgSrc} src='./assets/images/img20.webp' />
                       {/* çarkın ortasındaki animasyon */}
                       <Player
                         autoplay
                         loop
                         src='https://assets8.lottiefiles.com/datafiles/B1zOc97lUJINcA2/data.json'
-                        style={{height: "100px", width: "100px"}}></Player>
+                        style={{ height: "100px", width: "100px" }}></Player>
                     </div>
                   </div>
                 </div>
